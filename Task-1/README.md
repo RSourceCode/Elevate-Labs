@@ -6,9 +6,9 @@ This project is a simple yet responsive personal portfolio website built using *
 
 ## 📁 Project Structure
 
-├── index.html # Main landing page
-├── hire_me.html # Additional section with contact/hiring info
-├── style.css # Stylesheet for layout and design
+├── index.html # Main landing page  
+├── hire_me.html # Additional section with contact/hiring info  
+├── style.css # Stylesheet for layout and design  
 
 
 ## 🎯 Features
