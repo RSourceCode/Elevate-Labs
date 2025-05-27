@@ -1,0 +1,128 @@
+body{
+    margin: 0 20vw 0 20vw;
+
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;5 */
+    align-items: center;
+}
+
+.heading{
+    font-size: 8vmin;
+    text-align: center;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+}
+
+.fixed-container{
+    display: flex;
+    height: 25vh;
+    width: 50vw;
+    border-color: blueviolet;
+    border-width: 1vmin;
+    border-style: groove;
+    border-radius: 10vmin;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.motivating-message{
+    font-size: 5vmin;
+    padding-bottom: 5vh;
+}
+
+.progress-bar{
+    width: 30vw;
+    height:0.5vmin;
+    border-color:aquamarine;
+    border-width: 0.5vmin;
+    border-style: groove;
+    border-radius: 10vmin;
+}
+
+.progress-bar-fill{
+    width: 30vw;
+    height:0.5vmin;
+    background-color: aquamarine;
+}
+.progress{
+    display: flex;
+    background-color: blueviolet;
+    height: 20vmin;
+    width: 20vmin;
+    border-radius: 10vmin;
+    /* text-align: center; */
+    justify-content: center;
+    align-items: center;
+    font-size: 6vmin;
+}
+
+.task-writing-box{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5vh;
+}
+.task-write{
+    font-size: 4vmin;
+    height: 6vh;
+    width: 30vw;
+    border-radius: 3vmin;
+    background-color: black;
+    color: white;
+    border-width: 0.5vmin;
+    border-color: blueviolet;
+}
+.task-add-button{
+    height: 8vh;
+    width: 8vh;
+    border-radius: 4vmin;
+    font-size: 4vmin;
+    color: white;
+    background-color: blueviolet;
+
+}
+.scrolable-container{
+    height: 40vh;
+    overflow-y: auto;
+}
+
+.tasks{
+    list-style-type: none;
+    font-size: 4vmin;
+    width: 40vw;
+    display: flex;
+    padding-left: 5vmin;
+    padding-right: 5vmin;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #202020;
+    margin-top: 3vh;
+}
+
+.checkbox{
+    appearance: none;
+    /* height: 8vmin;
+    width: 8vmin; */
+    /* font-size: 5vmin; */
+}
+
+.delete{
+    height: 4vmin;
+    width: 4vmin;
+    display: flex;
+    background-color: rgba(0 ,0, 0, 0);
+    border-width: 0;
+    justify-content: center;
+    align-items: center;
+}
+.fa-trash{
+    font-size: 4vmin;
+    color: lightblue;
+}
+.fa-trash:hover{
+    color: red;
+}
