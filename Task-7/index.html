@@ -4,10 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        html{
+        body{
+            height: 100vh;
+            width: 100vw;
+            overflow-y: scroll;
             background-image: linear-gradient(to bottom right,rgb(42, 185, 252), yellow);
-
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .heading{
+            display: flex;
+            margin-left: 20vw;
+            font-size: 9vh;
+            height: 10vh;
+            /* width: 100vw; */
+            align-items: center;
+            justify-content: center;
+        }
+        .reload-button{
+            font-size: 3vh;
+            text-align: right;
+            margin-left: 20vw;
+            background-color: rgba(1,1, 1, 0);
         }
         .users{
             margin: 0 4vw;
@@ -21,22 +41,34 @@
             text-align: center;
             background-image: linear-gradient(to bottom right, yellow, rgb(42, 185, 252));
         }
+        .error{
+            margin-top: 20vh;
+            width: 90vw;
+            text-align: center;
+            font-size: 15vmin;
+        }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center;"> Users</h1>
-    <div>
+    <div class="heading"> Users  <button class="reload-button"><i class="fa-solid fa-rotate-right"></i> </button></div>
+
         <div class="users"></div>
-    </div>
     <script>
         const users = document.getElementsByClassName("users")[0];
-        const promise = fetch("https://jsonplaceholder.typicode.com/users", {method:"GET"})
+        const reload_button = document.getElementsByClassName("reload-button")[0];
+        fetch("https://jsonplaceholder.typicode.com/users", {method:"GET"})
         .then(response => response.json())
+        .catch((error) => {
+            users.innerHTML += `<div class="error">
+                Error: ${error}
+                </div class="error">`
+            }
+        )
         .then(
             (data) =>{
                 
                 for(let i = 0; i < data.length; i++){
-                    console.log(data[i].name)
+                    // console.log(data[i].name)
                     users.innerHTML += `<div class="user">
                 <h4>Name: ${data[i].name}</h4>
                 <h4>Email: ${data[i].email}</h4>
@@ -46,6 +78,33 @@
                 // console.log()
             } 
         )
+        reload_button.addEventListener("click", () =>{
+            console.log("RELOADED");
+            users.innerHTML = "";
+            fetch("https://jsonplaceholder.typicode.com/users", {method:"GET"})
+            .then(response => response.json())
+            .catch((error) => {
+                users.innerHTML += `<div class="error">
+                    Error: ${error}
+                    </div class="error">`
+                }
+            )
+            .then(
+                (data) =>{
+                    
+                    for(let i = 0; i < data.length; i++){
+                        // console.log(data[i].name)
+                        users.innerHTML += `<div class="user">
+                    <h4>Name: ${data[i].name}</h4>
+                    <h4>Email: ${data[i].email}</h4>
+                    <h4>Address: ${data[i].address.street + data[i].address.suit + data[i].address.city}</h4>
+                </div>`
+                    }
+                    // console.log()
+                } 
+            )
+        })
+
     </script>
 </body>
 </html>
