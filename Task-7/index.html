@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            background-image: linear-gradient(to bottom right,rgb(42, 185, 252), yellow);
+
+        }
+        .users{
+            margin: 0 4vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap:5vh 4vw;
+
+        }
+        .user{
+            border: solid black 0.1vmin;
+            text-align: center;
+            background-image: linear-gradient(to bottom right, yellow, rgb(42, 185, 252));
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;"> Users</h1>
+    <div>
+        <div class="users"></div>
+    </div>
+    <script>
+        const users = document.getElementsByClassName("users")[0];
+        const promise = fetch("https://jsonplaceholder.typicode.com/users", {method:"GET"})
+        .then(response => response.json())
+        .then(
+            (data) =>{
+                
+                for(let i = 0; i < data.length; i++){
+                    console.log(data[i].name)
+                    users.innerHTML += `<div class="user">
+                <h4>Name: ${data[i].name}</h4>
+                <h4>Email: ${data[i].email}</h4>
+                <h4>Address: ${data[i].address.street + data[i].address.suit + data[i].address.city}</h4>
+            </div>`
+                }
+                // console.log()
+            } 
+        )
+    </script>
+</body>
+</html>
